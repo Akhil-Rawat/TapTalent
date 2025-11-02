@@ -1,0 +1,149 @@
+{
+    "info": {
+        "name": "Currency Exchange API",
+        "description": "Real-time currency exchange rate API with multi-source aggregation",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/health",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "health"
+                    ]
+                },
+                "description": "Check if the API is running and healthy"
+            }
+        },
+        {
+            "name": "Get Quotes",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/quotes",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "quotes"
+                    ]
+                },
+                "description": "Get current USD exchange rates from all sources"
+            }
+        },
+        {
+            "name": "Get Quotes (Force Refresh)",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/quotes?refresh=true",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "quotes"
+                    ],
+                    "query": [
+                        {
+                            "key": "refresh",
+                            "value": "true",
+                            "description": "Force refresh data, bypass cache"
+                        }
+                    ]
+                },
+                "description": "Get fresh quotes, bypassing cache"
+            }
+        },
+        {
+            "name": "Get Average",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/average",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "average"
+                    ]
+                },
+                "description": "Get average buy and sell prices across all sources"
+            }
+        },
+        {
+            "name": "Get Slippage",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/slippage",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "slippage"
+                    ]
+                },
+                "description": "Get slippage percentage for each source compared to average"
+            }
+        },
+        {
+            "name": "Get Historical Data",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/historical?limit=10",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "historical"
+                    ],
+                    "query": [
+                        {
+                            "key": "limit",
+                            "value": "10",
+                            "description": "Number of records to retrieve"
+                        }
+                    ]
+                },
+                "description": "Get historical quotes from database"
+            }
+        },
+        {
+            "name": "Root Endpoint",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        ""
+                    ]
+                },
+                "description": "Get API information and available endpoints"
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000",
+            "type": "string"
+        }
+    ]
+}
